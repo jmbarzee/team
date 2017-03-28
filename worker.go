@@ -2,12 +2,12 @@ package main
 
 func (team *Team) makeWorkers(newJobs chan Job, finJobs chan Job, workerCount int) {
 	for i := 0; i < workerCount; i++ {
-		go team.workerJob(newJobs, finJobs)
+		go team.workJobs(newJobs, finJobs)
 	}
 }
 
-func (team *Team) workerJob(newJobs chan Job, finJobs chan Job) {
-	team.Printf("W: workerJob()")
+func (team *Team) workJobs(newJobs chan Job, finJobs chan Job) {
+	team.Printf("W: workJobs()")
 	for job := range newJobs {
 		team.Printf("W:  Got job!")
 		job.Work()
