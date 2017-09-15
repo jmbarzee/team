@@ -13,7 +13,7 @@ type Team struct {
 
 	start   time.Time
 	end     time.Time
-	elasped time.Duration
+	elapsed time.Duration
 	average time.Duration
 
 	maxParellelJobs int
@@ -47,13 +47,13 @@ func (team *Team) Run(tasks []Task) {
 	<-aggJobs // wait on job reaper
 
 	team.end = time.Now() // record start time
-	team.elasped = team.end.Sub(team.start)
+	team.elapsed = team.end.Sub(team.start)
 
 	team.logger.Printf("Jobs: %v", len(team.tasks))
 	//team.logger.Printf("Time: %v -> %v", team.start., team.end)
-	team.logger.Printf("Elasped: %v", team.elasped)
+	team.logger.Printf("Elapsed: %v", team.elapsed)
 	team.logger.Printf("Average: %v", team.average)
-	team.logger.Printf("jobs/s: %v", float64(len(team.tasks))/float64(team.elasped.Seconds()))
+	team.logger.Printf("jobs/s: %v", float64(len(team.tasks))/float64(team.elapsed.Seconds()))
 }
 
 func (team *Team) Printf(format string, a ...interface{}) {
