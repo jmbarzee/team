@@ -1,4 +1,4 @@
-package main
+package team
 
 import (
 	"log"
@@ -57,5 +57,5 @@ func (team *Team) Run(tasks []Task) {
 }
 
 func (team *Team) Printf(format string, a ...interface{}) {
-	team.logger.Printf(format, a...)
+	//team.logger.Printf(format, a...)
 }

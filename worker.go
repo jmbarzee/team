@@ -1,4 +1,4 @@
-package main
+package team
 
 func (team *Team) makeWorkers(newJobs chan Job, finJobs chan Job, workerCount int) {
 	for i := 0; i < workerCount; i++ {

@@ -1,4 +1,4 @@
-package main
+package team
 
 import (
 	"time"
@@ -15,7 +15,7 @@ func (team *Team) reapJobs(finJobs chan Job, aggJobs chan []Job) {
 
 	for i := 0; i < len(team.tasks); i++ {
 		job := <-finJobs
-		team.Printf("R: Reap job!  %v", job)
+		team.Printf("R: Reap job!")
 
 		team.average += job.elasped
 
